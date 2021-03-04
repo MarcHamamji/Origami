@@ -27,4 +27,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Push to gh-pages
-        run: git subtree push --prefix dist origin gh-pages
+        run: git subtree push --prefix dist origin gh-pages --force
