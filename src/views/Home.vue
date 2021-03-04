@@ -1,25 +1,35 @@
 <template>
   <div class="container">
-    <project-overview v-for="project in projects" :key="project.id" :projectId="project.id" />
+    <Filter />
+    {{ projects }}
+    <project-overview
+      v-for="project in currentProjects"
+      :key="project.id"
+      :projectId="project.id"
+    />
   </div>
 </template>
 
 <script lang="ts">
+import Filter from '@/components/Filter.vue';
 import ProjectOverview from '@/components/ProjectOverview.vue';
 import { useStore } from '@/store';
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'Home',
   setup() {
     const {
-      state: { projects },
+      getters: { currentProjects },
     } = useStore();
 
-    return { projects };
+    const projects = computed(() => currentProjects);
+
+    return { currentProjects, projects };
   },
   components: {
     ProjectOverview,
+    Filter,
   },
 });
 </script>

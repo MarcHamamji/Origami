@@ -12,7 +12,8 @@
 
     <div>
       <span>{{
-        `~${project.dimensions.width}×${project.dimensions.height}×${project.dimensions.depth}cm`
+        // eslint-disable-next-line max-len
+        `~ ${project.dimensions.width} × ${project.dimensions.height} × ${project.dimensions.depth} cm`
       }}</span>
     </div>
 
